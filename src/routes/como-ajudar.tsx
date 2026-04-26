@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Banknote, Heart, Package, Users } from "lucide-react";
+import { Heart, Package, Repeat, Rocket } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
 export const Route = createFileRoute("/como-ajudar")({
   head: () => ({
     meta: [
-      { title: "Como Ajudar — Doações | Sara Nordeste" },
+      { title: "Como Ajudar — Rede Sara Nordeste" },
       {
         name: "description",
         content:
-          "Doe via PIX, transferência ou seja voluntário. Sua contribuição mantém o acolhimento da Sara Nordeste.",
+          "Doe via Pix, seja parceiro mensal, doe itens ou gere impacto maior com a Rede Sara Nordeste.",
       },
-      { property: "og:title", content: "Como Ajudar — Sara Nordeste" },
+      { property: "og:title", content: "Como Ajudar — Rede Sara Nordeste" },
       {
         property: "og:description",
-        content: "PIX, transferência, doações de itens e voluntariado.",
+        content: "Pix, parceria mensal, doação de itens e parcerias estratégicas.",
       },
     ],
   }),
@@ -24,24 +24,39 @@ export const Route = createFileRoute("/como-ajudar")({
 
 const ways = [
   {
-    icon: Banknote,
-    title: "Doação financeira",
-    text: "Mensal ou única — toda contribuição mantém alimentação, cuidado e estrutura.",
+    icon: Heart,
+    emoji: "💛",
+    title: "Doação via Pix",
+    text: "Com apenas alguns segundos, você já estará ajudando alguém.",
+    detail: (
+      <div className="mt-4 space-y-2 rounded-xl bg-muted p-4 text-sm">
+        <p>
+          <strong>Chave Pix:</strong>{" "}
+          <span className="text-muted-foreground">(em breve)</span>
+        </p>
+        <p>
+          <strong>Nome:</strong> Rede Sara Nordeste
+        </p>
+      </div>
+    ),
+  },
+  {
+    icon: Repeat,
+    emoji: "🤝",
+    title: "Parceiro Mensal",
+    text: "Pequenos valores, quando constantes, geram grandes transformações. Doe a partir de R$ 10/mês via cartão de crédito ou contribuição automática mensal.",
   },
   {
     icon: Package,
-    title: "Doação de itens",
-    text: "Alimentos, roupas, materiais de higiene, medicamentos e itens de construção.",
+    emoji: "📦",
+    title: "Doe o que você tem",
+    text: "Aceitamos roupas e calçados, alimentos não perecíveis, produtos de higiene pessoal e proteínas (carne, peixe, etc.).",
   },
   {
-    icon: Users,
-    title: "Voluntariado",
-    text: "Compartilhe seu tempo, profissão ou habilidade — toda mão é bem-vinda.",
-  },
-  {
-    icon: Heart,
-    title: "Apadrinhamento",
-    text: "Apadrinhe um interno e acompanhe de perto sua jornada de recuperação.",
+    icon: Rocket,
+    emoji: "🚀",
+    title: "Gere impacto maior",
+    text: "Doação de bens como motos e veículos, apoio com contatos e conexões, indicação de empresas parceiras e apoio em editais e projetos.",
   },
 ];
 
@@ -50,25 +65,35 @@ function HelpPage() {
     <PageShell>
       <PageHero
         eyebrow="Como Ajudar"
-        title="Junte-se a quem transforma vidas"
-        description="Existem muitos jeitos de fazer parte. Escolha o seu e venha conosco."
+        title="Transforme Vidas. Seja Parte Dessa Missão."
+        description="Todos os dias, a Rede Sara Nordeste acolhe pessoas, alimenta famílias, restaura histórias e constrói novos começos. Mas nada disso acontece sozinho. Você pode ser a diferença entre alguém desistir… ou recomeçar."
       />
 
       <section className="py-20 md:py-24">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading
+            eyebrow="Formas de contribuir"
+            title="Escolha a sua forma de ajudar"
+            description="Toda contribuição — financeira, material ou de tempo — gera impacto real."
+          />
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
             {ways.map((w) => (
               <div
                 key={w.title}
-                className="rounded-2xl border border-border bg-card p-7 text-center shadow-soft"
+                className="rounded-2xl border border-border bg-card p-8 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
               >
-                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-emerald text-white">
-                  <w.icon className="h-7 w-7" />
+                <div className="flex items-center gap-4">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-emerald text-2xl">
+                    <span aria-hidden>{w.emoji}</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-foreground">
+                    {w.title}
+                  </h3>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">{w.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                   {w.text}
                 </p>
+                {w.detail}
               </div>
             ))}
           </div>
@@ -77,48 +102,18 @@ function HelpPage() {
 
       <section className="bg-secondary/60 py-20 md:py-24">
         <div className="container-page">
-          <SectionHeading
-            eyebrow="Faça sua doação"
-            title="Dados para contribuição"
-            description="Sua generosidade chega rápido a quem precisa."
-          />
-          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
-              <span className="inline-block rounded-full bg-gradient-gold px-3 py-1 text-xs font-bold text-gold-foreground">
-                PIX
-              </span>
-              <h3 className="mt-4 text-xl font-bold text-foreground">Chave PIX</h3>
-              <p className="mt-3 break-all rounded-lg bg-muted p-4 font-mono text-sm text-foreground">
-                contato@saranordeste.org
-              </p>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Em nome de: ONG Sara Nordeste
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
-              <span className="inline-block rounded-full bg-petrol px-3 py-1 text-xs font-bold text-petrol-foreground">
-                Conta Bancária
-              </span>
-              <h3 className="mt-4 text-xl font-bold text-foreground">Transferência</h3>
-              <ul className="mt-3 space-y-1.5 text-sm text-foreground">
-                <li><strong>Banco:</strong> 000 — Banco Exemplo</li>
-                <li><strong>Agência:</strong> 0000</li>
-                <li><strong>Conta Corrente:</strong> 00000-0</li>
-                <li><strong>CNPJ:</strong> 00.000.000/0001-00</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-gradient-emerald p-10 text-center shadow-elegant">
+          <div className="mx-auto max-w-3xl rounded-3xl bg-gradient-emerald p-10 text-center shadow-elegant md:p-14">
             <h3 className="text-2xl font-extrabold text-white md:text-3xl">
-              Quer ser voluntário ou apadrinhar?
+              Sua contribuição muda histórias.
             </h3>
-            <p className="mt-3 text-white/90">
-              Entre em contato e receba todas as informações.
+            <p className="mt-4 text-base leading-relaxed text-white/90 md:text-lg">
+              Quando você contribui com a Rede Sara Nordeste, você está restaurando
+              famílias, tirando pessoas das drogas, gerando renda para mulheres,
+              alimentando quem tem fome e dando dignidade a quem precisa recomeçar.
             </p>
             <Link
               to="/contato"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-bold text-gold-foreground shadow-gold transition-smooth hover:scale-[1.03]"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-bold text-gold-foreground shadow-gold transition-smooth hover:scale-[1.03]"
             >
               Falar com a equipe
             </Link>

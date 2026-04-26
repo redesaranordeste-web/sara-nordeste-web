@@ -1,21 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Eye, Compass } from "lucide-react";
+import { Heart, Eye, Compass, HandHeart, Shield, Sparkles, Users } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
 import houseImg from "@/assets/community-house.jpg";
 
 export const Route = createFileRoute("/quem-somos")({
   head: () => ({
     meta: [
-      { title: "Quem Somos — Sara Nordeste" },
+      { title: "Quem Somos — Rede Sara Nordeste" },
       {
         name: "description",
         content:
-          "Conheça a história, missão e valores da Sara Nordeste, comunidade terapêutica que restaura vidas no Nordeste do Brasil.",
+          "Fundada em 2009 por Itamar e Lucélia Damazio, a Rede Sara Nordeste acolhe e transforma vidas em situação de vulnerabilidade no Nordeste do Brasil.",
       },
-      { property: "og:title", content: "Quem Somos — Sara Nordeste" },
+      { property: "og:title", content: "Quem Somos — Rede Sara Nordeste" },
       {
         property: "og:description",
-        content: "Nossa história, missão e valores na restauração de vidas.",
+        content:
+          "Nossa história, missão, visão e valores na transformação social desde 2009.",
       },
     ],
   }),
@@ -26,18 +27,22 @@ const pillars = [
   {
     icon: Compass,
     title: "Missão",
-    text: "Acolher, restaurar e reinserir homens em situação de vulnerabilidade através de um trabalho humano, espiritual e profissional.",
+    text: "Promover transformação social por meio do acolhimento, capacitação e apoio a pessoas em situação de vulnerabilidade, incentivando dignidade, autonomia e novos caminhos de vida.",
   },
   {
     icon: Eye,
     title: "Visão",
-    text: "Ser referência no Nordeste em recuperação humana integral, levando dignidade e esperança a milhares de famílias.",
+    text: "Ser referência no Nordeste como uma rede de apoio social que transforma vidas de forma sustentável e colaborativa.",
   },
-  {
-    icon: Heart,
-    title: "Valores",
-    text: "Fé, dignidade, respeito, transparência, amor ao próximo e compromisso com a transformação de vidas.",
-  },
+];
+
+const values = [
+  { icon: Sparkles, label: "Fé" },
+  { icon: HandHeart, label: "Solidariedade" },
+  { icon: Users, label: "Dignidade humana" },
+  { icon: Shield, label: "Compromisso social" },
+  { icon: Eye, label: "Transparência" },
+  { icon: Heart, label: "Amor ao próximo" },
 ];
 
 function AboutPage() {
@@ -45,8 +50,8 @@ function AboutPage() {
     <PageShell>
       <PageHero
         eyebrow="Quem Somos"
-        title="Uma comunidade do Reino"
-        description="Há mais de uma década restaurando vidas marcadas pela dependência e pelo abandono."
+        title="Uma rede que transforma vidas"
+        description="Desde 2009 acolhendo, capacitando e restaurando histórias no Nordeste do Brasil."
       />
 
       <section className="py-20 md:py-24">
@@ -56,42 +61,45 @@ function AboutPage() {
               Nossa história
             </span>
             <h2 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">
-              Um sonho que virou casa, abrigo e família.
+              De comunidade terapêutica a Rede Sara Nordeste.
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                A Sara Nordeste nasceu do desejo de ver vidas restauradas no coração do
-                Nordeste brasileiro. Localizada em Jaboatão dos Guararapes, nossa
-                comunidade acolhe homens que enfrentam a dependência química e
-                circunstâncias de profunda vulnerabilidade.
-              </p>
-              <p>
-                Acreditamos que onde a sociedade vê um problema, Deus vê um herói em
-                construção. Por isso nosso lema:{" "}
+                A ONG Sara Nordeste teve início no ano de 2009, sendo fundada por{" "}
+                <strong className="text-foreground">Itamar Félix Damazio</strong> —
+                hoje conhecido como Pastor Itamar Félix Damazio — ao lado de sua
+                esposa{" "}
                 <strong className="text-foreground">
-                  “aqui morre o homem e nasce o herói.”
+                  Lucélia Lima Feitosa Damazio
                 </strong>
+                .
               </p>
               <p>
-                Nosso trabalho une espiritualidade, escuta, disciplina e oportunidade —
-                criando um ambiente onde a transformação acontece com tempo, cuidado e
-                propósito.
+                Desde sua origem, a instituição nasceu com o propósito de acolher e
+                transformar vidas, especialmente de pessoas em situação de
+                vulnerabilidade social. Em 2013, a ONG foi oficialmente regularizada,
+                consolidando sua atuação de forma legal e estruturada.
+              </p>
+              <p>
+                Com o passar dos anos, evoluiu de comunidade terapêutica para a{" "}
+                <strong className="text-foreground">Rede Sara Nordeste</strong>,
+                ampliando suas ações e seu impacto social.
               </p>
             </div>
           </div>
           <div className="relative">
             <img
               src={houseImg}
-              alt="Casa de acolhimento da Sara Nordeste ao entardecer"
+              alt="Espaço de acolhimento da Rede Sara Nordeste"
               className="rounded-3xl object-cover shadow-elegant"
               loading="lazy"
               width={1600}
               height={1067}
             />
             <div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-gradient-gold px-6 py-4 text-gold-foreground shadow-gold md:block">
-              <p className="text-3xl font-extrabold">+15</p>
+              <p className="text-3xl font-extrabold">2009</p>
               <p className="text-xs font-semibold uppercase tracking-wider">
-                anos de história
+                Início da jornada
               </p>
             </div>
           </div>
@@ -100,7 +108,7 @@ function AboutPage() {
 
       <section className="bg-secondary/60 py-20 md:py-24">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {pillars.map((p) => (
               <div
                 key={p.title}
@@ -110,11 +118,33 @@ function AboutPage() {
                   <p.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                   {p.text}
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-border bg-card p-8 shadow-soft">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+              Nossos valores
+            </span>
+            <h3 className="mt-2 text-2xl font-extrabold text-foreground">
+              O que nos move todos os dias
+            </h3>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {values.map((v) => (
+                <div
+                  key={v.label}
+                  className="flex items-center gap-3 rounded-xl bg-secondary/70 p-4"
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-gold text-gold-foreground">
+                    <v.icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">{v.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
