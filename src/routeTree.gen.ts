@@ -9,26 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
-import { Route as DepoimentosRouteImport } from './routes/depoimentos'
+import { Route as ProjetosRouteImport } from './routes/projetos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComoAjudarRouteImport } from './routes/como-ajudar'
 import { Route as IndexRouteImport } from './routes/index'
 
-const ServicosRoute = ServicosRouteImport.update({
-  id: '/servicos',
-  path: '/servicos',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const QuemSomosRoute = QuemSomosRouteImport.update({
   id: '/quem-somos',
   path: '/quem-somos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DepoimentosRoute = DepoimentosRouteImport.update({
-  id: '/depoimentos',
-  path: '/depoimentos',
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -51,72 +45,48 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
-  '/depoimentos': typeof DepoimentosRoute
+  '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
-  '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
-  '/depoimentos': typeof DepoimentosRoute
+  '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
-  '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
-  '/depoimentos': typeof DepoimentosRoute
+  '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
-  '/servicos': typeof ServicosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/como-ajudar'
-    | '/contato'
-    | '/depoimentos'
-    | '/quem-somos'
-    | '/servicos'
+  fullPaths: '/' | '/como-ajudar' | '/contato' | '/projetos' | '/quem-somos'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/como-ajudar'
-    | '/contato'
-    | '/depoimentos'
-    | '/quem-somos'
-    | '/servicos'
+  to: '/' | '/como-ajudar' | '/contato' | '/projetos' | '/quem-somos'
   id:
     | '__root__'
     | '/'
     | '/como-ajudar'
     | '/contato'
-    | '/depoimentos'
+    | '/projetos'
     | '/quem-somos'
-    | '/servicos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComoAjudarRoute: typeof ComoAjudarRoute
   ContatoRoute: typeof ContatoRoute
-  DepoimentosRoute: typeof DepoimentosRoute
+  ProjetosRoute: typeof ProjetosRoute
   QuemSomosRoute: typeof QuemSomosRoute
-  ServicosRoute: typeof ServicosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/servicos': {
-      id: '/servicos'
-      path: '/servicos'
-      fullPath: '/servicos'
-      preLoaderRoute: typeof ServicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/quem-somos': {
       id: '/quem-somos'
       path: '/quem-somos'
@@ -124,11 +94,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuemSomosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/depoimentos': {
-      id: '/depoimentos'
-      path: '/depoimentos'
-      fullPath: '/depoimentos'
-      preLoaderRoute: typeof DepoimentosRouteImport
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -159,9 +129,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComoAjudarRoute: ComoAjudarRoute,
   ContatoRoute: ContatoRoute,
-  DepoimentosRoute: DepoimentosRoute,
+  ProjetosRoute: ProjetosRoute,
   QuemSomosRoute: QuemSomosRoute,
-  ServicosRoute: ServicosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

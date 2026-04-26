@@ -6,9 +6,8 @@ import logo from "@/assets/logo-sara-nordeste.png";
 const links = [
   { to: "/", label: "Início" },
   { to: "/quem-somos", label: "Quem Somos" },
-  { to: "/servicos", label: "Serviços" },
+  { to: "/projetos", label: "Projetos" },
   { to: "/como-ajudar", label: "Como Ajudar" },
-  { to: "/depoimentos", label: "Depoimentos" },
   { to: "/contato", label: "Contato" },
 ] as const;
 
@@ -19,11 +18,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between md:h-20">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Sara Nordeste" className="h-10 w-10 rounded-full object-cover md:h-12 md:w-12" />
+          <img src={logo} alt="Rede Sara Nordeste" className="h-10 w-10 rounded-full object-cover md:h-12 md:w-12" />
           <div className="leading-tight">
-            <p className="text-base font-extrabold text-petrol md:text-lg">Sara Nordeste</p>
+            <p className="text-base font-extrabold text-petrol md:text-lg">Rede Sara Nordeste</p>
             <p className="hidden text-[11px] font-medium text-muted-foreground sm:block">
-              Comunidade do Reino
+              Transformando vidas desde 2009
             </p>
           </div>
         </Link>

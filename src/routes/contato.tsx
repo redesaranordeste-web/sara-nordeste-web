@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato e Admissão — Sara Nordeste" },
+      { title: "Contato — Rede Sara Nordeste" },
       {
         name: "description",
         content:
-          "Fale com a Sara Nordeste para admissão, parcerias ou voluntariado. Rua Uruaçu, 144 — Jaboatão dos Guararapes/PE.",
+          "Fale com a Rede Sara Nordeste pelo WhatsApp (81) 98854655, e-mail saranordeste@hotmail.com ou Instagram @redesaranordeste.",
       },
-      { property: "og:title", content: "Contato e Admissão — Sara Nordeste" },
+      { property: "og:title", content: "Contato — Rede Sara Nordeste" },
       {
         property: "og:description",
         content: "Atendimento humano e acolhedor. Estamos prontos para ouvir você.",
@@ -21,20 +21,25 @@ export const Route = createFileRoute("/contato")({
   component: ContactPage,
 });
 
+const WHATSAPP_NUMBER = "5581988546555"; // wa.me link format
+const WHATSAPP_DISPLAY = "(81) 98854-6555";
+
 function ContactPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Contato e Admissão"
-        title="Estamos prontos para ouvir você"
-        description="Fale conosco com sigilo, respeito e acolhimento."
+        eyebrow="Contato"
+        title="Entre em contato com a Rede Sara Nordeste"
+        description="Quero ajuda, quero ajudar ou quero ser parceiro? Fale com a gente."
       />
 
       <section className="py-20 md:py-24">
         <div className="container-page grid gap-10 lg:grid-cols-2">
           {/* Form */}
           <div className="rounded-3xl border border-border bg-card p-8 shadow-soft md:p-10">
-            <h2 className="text-2xl font-extrabold text-foreground">Envie uma mensagem</h2>
+            <h2 className="text-2xl font-extrabold text-foreground">
+              Envie uma mensagem
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Nossa equipe responderá com a maior brevidade possível.
             </p>
@@ -50,10 +55,39 @@ function ContactPage() {
                 <Field label="Telefone" name="phone" type="tel" required />
               </div>
               <Field label="E-mail" name="email" type="email" required />
-              <Field label="Assunto" name="subject" />
               <div>
-                <label className="text-sm font-semibold text-foreground">Mensagem</label>
+                <label
+                  htmlFor="subject"
+                  className="text-sm font-semibold text-foreground"
+                >
+                  Assunto
+                </label>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  defaultValue=""
+                  className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/20"
+                >
+                  <option value="" disabled>
+                    Selecione…
+                  </option>
+                  <option value="ajuda">Quero ajuda</option>
+                  <option value="ajudar">Quero ajudar</option>
+                  <option value="parceria">Parceria</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="message"
+                  className="text-sm font-semibold text-foreground"
+                >
+                  Mensagem
+                </label>
                 <textarea
+                  id="message"
+                  name="message"
                   required
                   rows={5}
                   className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -71,30 +105,56 @@ function ContactPage() {
 
           {/* Info */}
           <div className="space-y-5">
-            <InfoCard icon={MapPin} title="Endereço">
-              Rua Uruaçu, 144<br />
-              Jaboatão dos Guararapes — PE<br />
-              CEP 54430-470
-            </InfoCard>
-            <InfoCard icon={Phone} title="Telefone / WhatsApp">
-              <a href="tel:+5581000000000" className="hover:text-primary">
-                (81) 0000-0000
-              </a>
-            </InfoCard>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 rounded-2xl bg-gradient-emerald p-6 text-white shadow-elegant transition-smooth hover:scale-[1.01]"
+            >
+              <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/15">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider opacity-90">
+                  WhatsApp
+                </p>
+                <p className="text-lg font-extrabold">{WHATSAPP_DISPLAY}</p>
+                <p className="text-xs opacity-90">Toque para conversar agora</p>
+              </div>
+            </a>
+
             <InfoCard icon={Mail} title="E-mail">
-              <a href="mailto:contato@saranordeste.org" className="hover:text-primary">
-                contato@saranordeste.org
+              <a
+                href="mailto:saranordeste@hotmail.com"
+                className="hover:text-primary"
+              >
+                saranordeste@hotmail.com
               </a>
             </InfoCard>
-            <InfoCard icon={Clock} title="Atendimento">
-              Acolhimento 24 horas<br />
-              Visitas: aos domingos, das 14h às 17h
+
+            <InfoCard icon={Instagram} title="Instagram">
+              <a
+                href="https://www.instagram.com/redesaranordeste"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary"
+              >
+                @redesaranordeste
+              </a>
+            </InfoCard>
+
+            <InfoCard icon={MapPin} title="Endereço">
+              Rua VC UM, Setor Cinco
+              <br />
+              Enseadas dos Corais
+              <br />
+              Cabo de Santo Agostinho — PE
             </InfoCard>
 
             <div className="overflow-hidden rounded-3xl border border-border shadow-soft">
               <iframe
-                title="Localização da Sara Nordeste"
-                src="https://www.google.com/maps?q=Rua+Urua%C3%A7u+144+Jabot%C3%A3o+dos+Guararapes&output=embed"
+                title="Localização da Rede Sara Nordeste"
+                src="https://www.google.com/maps?q=Enseadas+dos+Corais+Cabo+de+Santo+Agostinho+PE&output=embed"
                 className="h-64 w-full"
                 loading="lazy"
               />
@@ -149,7 +209,9 @@ function InfoCard({
       </div>
       <div>
         <h3 className="text-base font-bold text-foreground">{title}</h3>
-        <div className="mt-1 text-sm leading-relaxed text-muted-foreground">{children}</div>
+        <div className="mt-1 text-sm leading-relaxed text-muted-foreground">
+          {children}
+        </div>
       </div>
     </div>
   );
