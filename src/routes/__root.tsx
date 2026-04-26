@@ -29,13 +29,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sara Nordeste — Comunidade Terapêutica" },
+      { title: "Rede Sara Nordeste — Transformando vidas com amor, fé e ação social" },
       {
         name: "description",
         content:
-          "Sara Nordeste: acolhimento, recuperação e nova vida em Jaboatão dos Guararapes/PE.",
+          "Rede Sara Nordeste: acolhimento, capacitação e ação social no Nordeste do Brasil desde 2009.",
       },
-      { name: "author", content: "Sara Nordeste" },
+      { name: "author", content: "Rede Sara Nordeste" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
