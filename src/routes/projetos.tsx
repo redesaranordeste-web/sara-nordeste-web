@@ -87,10 +87,10 @@ function ProjectsPage() {
               Sara Nordeste, você se torna um colaborador direto dessa missão.
             </p>
             <Link
-              to="/contato"
+              to="/jardim"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-6 py-3 text-sm font-bold text-gold-foreground shadow-gold transition-smooth hover:scale-[1.03]"
             >
-              Seja um parceiro do Jardim <ArrowRight className="h-4 w-4" />
+              Conheça o Jardim Sara Nordeste <ArrowRight className="h-4 w-4" />
             </Link>
           </ProjectCard>
 

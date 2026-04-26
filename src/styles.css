@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap");
 
 @theme inline {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -31,6 +31,10 @@
   --color-gold-foreground: var(--gold-foreground);
   --color-petrol: var(--petrol);
   --color-petrol-foreground: var(--petrol-foreground);
+  --color-jardim: var(--jardim);
+  --color-jardim-soft: var(--jardim-soft);
+  --color-jardim-foreground: var(--jardim-foreground);
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -93,6 +97,13 @@
   --shadow-gold: 0 10px 30px -10px oklch(0.78 0.12 85 / 0.55);
 
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Jardim Sara Nordeste — verde oficial #2db32d */
+  --jardim: oklch(0.66 0.21 142);
+  --jardim-soft: oklch(0.97 0.04 145);
+  --jardim-foreground: oklch(0.99 0.005 150);
+  --gradient-jardim: linear-gradient(135deg, oklch(0.66 0.21 142), oklch(0.55 0.18 148));
+  --shadow-jardim: 0 14px 40px -14px oklch(0.66 0.21 142 / 0.45);
 }
 
 .dark {
@@ -173,6 +184,17 @@
 }
 @utility shadow-gold {
   box-shadow: var(--shadow-gold);
+}
+@utility bg-gradient-jardim {
+  background-image: var(--gradient-jardim);
+}
+@utility shadow-jardim {
+  box-shadow: var(--shadow-jardim);
+}
+@utility font-serif-display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
 }
 @utility transition-smooth {
   transition: var(--transition-smooth);
