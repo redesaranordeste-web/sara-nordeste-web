@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contato")({
       {
         name: "description",
         content:
-          "Fale com a Rede Sara Nordeste pelo WhatsApp (81) 98854655, e-mail saranordeste@hotmail.com ou Instagram @redesaranordeste.",
+          "Fale com a Rede Sara Nordeste pelo WhatsApp (81) 98854-1655, e-mail saranordeste@hotmail.com ou Instagram @redesaranordeste.",
       },
       { property: "og:title", content: "Contato — Rede Sara Nordeste" },
       {
@@ -21,8 +21,8 @@ export const Route = createFileRoute("/contato")({
   component: ContactPage,
 });
 
-const WHATSAPP_NUMBER = "5581988546555"; // wa.me link format
-const WHATSAPP_DISPLAY = "(81) 98854-6555";
+const WHATSAPP_NUMBER = "5581988541655"; // wa.me link format
+const WHATSAPP_DISPLAY = "(81) 98854-1655";
 
 function ContactPage() {
   return (

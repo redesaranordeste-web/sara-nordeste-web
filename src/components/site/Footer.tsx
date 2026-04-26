@@ -47,12 +47,12 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <MessageCircle className="h-4 w-4 shrink-0" />
               <a
-                href="https://wa.me/5581988546555"
+                href="https://wa.me/5581988541655"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="opacity-85 hover:opacity-100"
               >
-                WhatsApp (81) 98854-6555
+                WhatsApp (81) 98854-1655
               </a>
             </li>
             <li className="flex items-center gap-2">
@@ -77,7 +77,7 @@ export function Footer() {
               <Instagram className="h-4 w-4" />
             </a>
             <a
-              href="https://wa.me/5581988546555"
+              href="https://wa.me/5581988541655"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
