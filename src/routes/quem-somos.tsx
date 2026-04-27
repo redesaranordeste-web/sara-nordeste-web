@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Eye, Compass, HandHeart, Shield, Sparkles, Users } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import houseImg from "@/assets/community-house.jpg";
+import houseImg from "@/assets/fachada-sara-nordeste.jpg";
 import fundadoresImg from "@/assets/fundadores-sara-nordeste.png";
 
 export const Route = createFileRoute("/quem-somos")({

@@ -3,6 +3,11 @@ import { ArrowRight, Heart, Leaf, Sprout, Users, MessageCircle, Mail } from "luc
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import logoJardim from "@/assets/logo-jardim-sara-nordeste.png";
+import jardimVista from "@/assets/jardim-vista.jpg";
+import jardimMudas from "@/assets/jardim-mudas.jpg";
+import jardimMudasFila from "@/assets/jardim-mudas-fila.jpg";
+import jardimMudas2 from "@/assets/jardim-mudas-2.jpg";
+import jardimProjetoVaso from "@/assets/jardim-projeto-vaso.jpg";
 
 export const Route = createFileRoute("/jardim")({
   head: () => ({
@@ -108,6 +113,75 @@ function JardimPage() {
                 paisagistas e clientes que buscam não apenas qualidade, mas
                 propósito em cada planta.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* GALERIA */}
+        <section className="bg-white py-20 md:py-24">
+          <div className="container-page">
+            <div className="mx-auto max-w-2xl text-center">
+              <span
+                className="inline-block rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest text-white"
+                style={{ backgroundColor: "var(--jardim)" }}
+              >
+                Galeria
+              </span>
+              <h2
+                className="font-serif-display mt-4 text-3xl font-bold md:text-4xl"
+                style={{ color: "var(--jardim)" }}
+              >
+                Um passeio pelo Jardim
+              </h2>
+              <p className="mt-4 text-base text-muted-foreground md:text-lg">
+                Imagens reais do nosso espaço, das mudas cultivadas e dos projetos entregues.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-4 md:grid-cols-3 md:auto-rows-[220px]">
+              <figure className="md:col-span-2 md:row-span-2 overflow-hidden rounded-3xl shadow-elegant">
+                <img
+                  src={jardimVista}
+                  alt="Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas"
+                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </figure>
+              <figure className="overflow-hidden rounded-3xl shadow-soft">
+                <img
+                  src={jardimMudas}
+                  alt="Mudas verdes cultivadas em canteiros"
+                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </figure>
+              <figure className="overflow-hidden rounded-3xl shadow-soft">
+                <img
+                  src={jardimMudasFila}
+                  alt="Mudas organizadas em fileiras prontas para entrega"
+                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <figure className="overflow-hidden rounded-3xl shadow-soft">
+                <img
+                  src={jardimMudas2}
+                  alt="Linha de mudas ornamentais ao lado do espaço de cultivo"
+                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </figure>
+              <figure className="overflow-hidden rounded-3xl shadow-soft">
+                <img
+                  src={jardimProjetoVaso}
+                  alt="Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina"
+                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
         </section>
