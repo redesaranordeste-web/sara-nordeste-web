@@ -48,6 +48,13 @@ export const Route = createFileRoute("/jardim")({
 const SLOGAN = "Das Ruínas, Deus Criou Um Jardim.";
 
 function JardimPage() {
+  const [filtro, setFiltro] = useState<Categoria>("Tudo");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const visiveis = galeria.filter(
+    (g) => filtro === "Tudo" || g.categoria === filtro,
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
