@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Eye, Compass, HandHeart, Shield, Sparkles, Users } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
 import houseImg from "@/assets/community-house.jpg";
+import fundadoresImg from "@/assets/fundadores-sara-nordeste.png";
 
 export const Route = createFileRoute("/quem-somos")({
   head: () => ({
@@ -101,6 +102,67 @@ function AboutPage() {
               <p className="text-xs font-semibold uppercase tracking-wider">
                 Início da jornada
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-24">
+        <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+          <div className="relative order-2 lg:order-1">
+            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-emerald opacity-10 blur-3xl" />
+            <div className="overflow-hidden rounded-3xl bg-gradient-to-b from-secondary/60 to-background p-6 shadow-elegant">
+              <img
+                src={fundadoresImg}
+                alt="Pastor Itamar Félix Damazio e Lucélia Lima Feitosa Damazio, fundadores da Rede Sara Nordeste"
+                className="mx-auto h-auto w-full max-w-md object-contain"
+                loading="lazy"
+                width={940}
+                height={760}
+              />
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+              Fundadores
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">
+              Itamar e Lucélia Damazio
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              <strong className="text-foreground">Pastor Itamar Félix Damazio</strong>{" "}
+              e sua esposa{" "}
+              <strong className="text-foreground">
+                Lucélia Lima Feitosa Damazio
+              </strong>{" "}
+              são o coração da Rede Sara Nordeste. Movidos por fé e amor ao próximo,
+              dedicam suas vidas ao acolhimento de pessoas em situação de
+              vulnerabilidade, conduzindo desde 2009 uma missão de restauração,
+              dignidade e esperança no Nordeste do Brasil.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Liderança
+                </p>
+                <p className="mt-2 text-sm font-semibold text-foreground">
+                  Pastor Itamar Félix Damazio
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Fundador e presidente
+                </p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Cofundadora
+                </p>
+                <p className="mt-2 text-sm font-semibold text-foreground">
+                  Lucélia Lima Feitosa Damazio
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Acolhimento e gestão
+                </p>
+              </div>
             </div>
           </div>
         </div>
