@@ -1,13 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { ArrowRight, Heart, Leaf, Sprout, Users, MessageCircle, Mail } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { Lightbox } from "@/components/site/Lightbox";
 import logoJardim from "@/assets/logo-jardim-sara-nordeste.png";
 import jardimVista from "@/assets/jardim-vista.jpg";
 import jardimMudas from "@/assets/jardim-mudas.jpg";
 import jardimMudasFila from "@/assets/jardim-mudas-fila.jpg";
 import jardimMudas2 from "@/assets/jardim-mudas-2.jpg";
 import jardimProjetoVaso from "@/assets/jardim-projeto-vaso.jpg";
+
+type Categoria = "Tudo" | "Mudas" | "Projetos" | "Espaço";
+
+const galeria: { src: string; alt: string; categoria: Exclude<Categoria, "Tudo"> }[] = [
+  { src: jardimVista, alt: "Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas", categoria: "Espaço" },
+  { src: jardimMudas, alt: "Mudas verdes cultivadas em canteiros", categoria: "Mudas" },
+  { src: jardimMudasFila, alt: "Mudas organizadas em fileiras prontas para entrega", categoria: "Mudas" },
+  { src: jardimMudas2, alt: "Linha de mudas ornamentais ao lado do espaço de cultivo", categoria: "Mudas" },
+  { src: jardimProjetoVaso, alt: "Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina", categoria: "Projetos" },
+];
+
+const categorias: Categoria[] = ["Tudo", "Mudas", "Projetos", "Espaço"];
 
 export const Route = createFileRoute("/jardim")({
   head: () => ({
