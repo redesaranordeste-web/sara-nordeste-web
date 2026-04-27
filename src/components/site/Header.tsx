@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Users, Sprout, Leaf, HandHeart, Mail } from "lucide-react";
 import logo from "@/assets/logo-sara-nordeste.png";
 
 const links = [
-  { to: "/", label: "Início" },
-  { to: "/quem-somos", label: "Quem Somos" },
-  { to: "/projetos", label: "Projetos" },
-  { to: "/jardim", label: "Jardim" },
-  { to: "/como-ajudar", label: "Como Ajudar" },
-  { to: "/contato", label: "Contato" },
+  { to: "/", label: "Início", icon: Home },
+  { to: "/quem-somos", label: "Quem Somos", icon: Users },
+  { to: "/projetos", label: "Projetos", icon: Sprout },
+  { to: "/jardim", label: "Jardim", icon: Leaf },
+  { to: "/como-ajudar", label: "Como Ajudar", icon: HandHeart },
+  { to: "/contato", label: "Contato", icon: Mail },
 ] as const;
 
 export function Header() {
@@ -63,19 +63,29 @@ export function Header() {
       {open && (
         <div className="border-t border-border/60 bg-background lg:hidden">
           <nav className="container-page flex flex-col gap-1 py-4">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: "text-primary bg-accent" }}
-                inactiveProps={{ className: "text-foreground/80" }}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-4 py-3 text-base font-semibold transition-smooth"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeOptions={{ exact: l.to === "/" }}
+                  activeProps={{
+                    className:
+                      "text-primary bg-accent border-l-4 border-primary pl-3",
+                  }}
+                  inactiveProps={{
+                    className:
+                      "text-foreground/80 border-l-4 border-transparent pl-3",
+                  }}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-base font-semibold transition-smooth"
+                >
+                  <Icon className="h-5 w-5 shrink-0" />
+                  {l.label}
+                </Link>
+              );
+            })}
             <Link
               to="/como-ajudar"
               onClick={() => setOpen(false)}
