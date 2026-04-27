@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
 import { Route as ProjetosRouteImport } from './routes/projetos'
+import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as JardimRouteImport } from './routes/jardim'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComoAjudarRouteImport } from './routes/como-ajudar'
@@ -24,6 +25,11 @@ const QuemSomosRoute = QuemSomosRouteImport.update({
 const ProjetosRoute = ProjetosRouteImport.update({
   id: '/projetos',
   path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParceirosRoute = ParceirosRouteImport.update({
+  id: '/parceiros',
+  path: '/parceiros',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JardimRoute = JardimRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
   '/jardim': typeof JardimRoute
+  '/parceiros': typeof ParceirosRoute
   '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
   '/jardim': typeof JardimRoute
+  '/parceiros': typeof ParceirosRoute
   '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/como-ajudar': typeof ComoAjudarRoute
   '/contato': typeof ContatoRoute
   '/jardim': typeof JardimRoute
+  '/parceiros': typeof ParceirosRoute
   '/projetos': typeof ProjetosRoute
   '/quem-somos': typeof QuemSomosRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/como-ajudar'
     | '/contato'
     | '/jardim'
+    | '/parceiros'
     | '/projetos'
     | '/quem-somos'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/como-ajudar'
     | '/contato'
     | '/jardim'
+    | '/parceiros'
     | '/projetos'
     | '/quem-somos'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/como-ajudar'
     | '/contato'
     | '/jardim'
+    | '/parceiros'
     | '/projetos'
     | '/quem-somos'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   ComoAjudarRoute: typeof ComoAjudarRoute
   ContatoRoute: typeof ContatoRoute
   JardimRoute: typeof JardimRoute
+  ParceirosRoute: typeof ParceirosRoute
   ProjetosRoute: typeof ProjetosRoute
   QuemSomosRoute: typeof QuemSomosRoute
 }
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/projetos'
       fullPath: '/projetos'
       preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parceiros': {
+      id: '/parceiros'
+      path: '/parceiros'
+      fullPath: '/parceiros'
+      preLoaderRoute: typeof ParceirosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jardim': {
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComoAjudarRoute: ComoAjudarRoute,
   ContatoRoute: ContatoRoute,
   JardimRoute: JardimRoute,
+  ParceirosRoute: ParceirosRoute,
   ProjetosRoute: ProjetosRoute,
   QuemSomosRoute: QuemSomosRoute,
 }

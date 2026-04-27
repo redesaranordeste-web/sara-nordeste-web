@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Home, Users, Sprout, Leaf, HandHeart, Mail } from "lucide-react";
+import { Menu, X, Home, Users, Sprout, Leaf, HandHeart, Mail, Handshake } from "lucide-react";
 import logo from "@/assets/logo-sara-nordeste.png";
 
 const links = [
@@ -8,6 +8,7 @@ const links = [
   { to: "/quem-somos", label: "Quem Somos", icon: Users },
   { to: "/projetos", label: "Projetos", icon: Sprout },
   { to: "/jardim", label: "Jardim", icon: Leaf },
+  { to: "/parceiros", label: "Parceiros", icon: Handshake },
   { to: "/como-ajudar", label: "Como Ajudar", icon: HandHeart },
   { to: "/contato", label: "Contato", icon: Mail },
 ] as const;
