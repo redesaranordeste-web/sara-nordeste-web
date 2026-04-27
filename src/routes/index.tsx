@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, HandHeart, Heart, Users, Sprout, Calendar } from "lucide-react";
+import { ArrowRight, HandHeart, Heart, Users, Sprout, Calendar, Quote } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import heroImg from "@/assets/hero-recovery.jpg";
