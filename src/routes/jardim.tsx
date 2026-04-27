@@ -3,6 +3,11 @@ import { ArrowRight, Heart, Leaf, Sprout, Users, MessageCircle, Mail } from "luc
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import logoJardim from "@/assets/logo-jardim-sara-nordeste.png";
+import jardimVista from "@/assets/jardim-vista.jpg";
+import jardimMudas from "@/assets/jardim-mudas.jpg";
+import jardimMudasFila from "@/assets/jardim-mudas-fila.jpg";
+import jardimMudas2 from "@/assets/jardim-mudas-2.jpg";
+import jardimProjetoVaso from "@/assets/jardim-projeto-vaso.jpg";
 
 export const Route = createFileRoute("/jardim")({
   head: () => ({
