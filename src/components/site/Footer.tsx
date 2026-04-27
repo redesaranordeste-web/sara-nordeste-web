@@ -30,6 +30,7 @@ export function Footer() {
             <li><Link to="/quem-somos" className="opacity-85 hover:opacity-100">Quem Somos</Link></li>
             <li><Link to="/projetos" className="opacity-85 hover:opacity-100">Projetos</Link></li>
             <li><Link to="/jardim" className="opacity-85 hover:opacity-100">Jardim Sara Nordeste</Link></li>
+            <li><Link to="/parceiros" className="opacity-85 hover:opacity-100">Conheça nossos parceiros →</Link></li>
             <li><Link to="/como-ajudar" className="opacity-85 hover:opacity-100">Como Ajudar</Link></li>
             <li><Link to="/contato" className="opacity-85 hover:opacity-100">Contato</Link></li>
           </ul>

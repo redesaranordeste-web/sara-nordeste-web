@@ -221,7 +221,7 @@ function PixCard() {
               )}
             </button>
             <p className="mt-4 text-sm text-muted-foreground">
-              <strong className="text-foreground">Favorecido:</strong> Rede Sara
+              <strong className="text-foreground">Favorecido:</strong> ONG Sara
               Nordeste
             </p>
           </div>
