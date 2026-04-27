@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, HandHeart, Heart, Users, Sprout, Calendar } from "lucide-react";
+import { ArrowRight, HandHeart, Heart, Users, Sprout, Calendar, Quote } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import heroImg from "@/assets/hero-recovery.jpg";
@@ -168,8 +168,62 @@ function HomePage() {
         </div>
       </section>
 
+      {/* DEPOIMENTOS */}
+      <section className="bg-secondary/60 py-20 md:py-28">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Vidas transformadas"
+            title="Histórias que nos movem"
+            description="Cada pessoa acolhida carrega uma história única de recomeço, fé e esperança."
+          />
+
+          <div className="mt-12 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+            {[
+              {
+                texto:
+                  "Cheguei sem rumo, hoje tenho família, trabalho e fé. A Rede Sara Nordeste me devolveu a vida.",
+                nome: "João S., 2 anos de recuperação",
+              },
+              {
+                texto:
+                  "No Jardim aprendi mais que cuidar de plantas — aprendi a cuidar de mim. Cada muda que cresce me lembra do meu próprio recomeço.",
+                nome: "Anônimo, 1 ano e meio em recuperação",
+              },
+              {
+                texto:
+                  "Os cursos mudaram a vida da minha família. Hoje sustento meus filhos com o que aprendi aqui.",
+                nome: "Maria L., participante dos cursos",
+              },
+            ].map((d) => (
+              <article
+                key={d.nome}
+                className="relative min-w-[85%] shrink-0 snap-center rounded-3xl border border-border bg-card p-7 shadow-soft md:min-w-0 md:shrink"
+              >
+                <Quote className="h-8 w-8 text-primary/30" aria-hidden="true" />
+                <p className="mt-3 text-base leading-relaxed text-foreground">
+                  “{d.texto}”
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-sm font-bold text-primary">
+                  <Heart className="h-4 w-4 fill-current" />
+                  {d.nome}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              to="/contato"
+              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+            >
+              Compartilhe sua história <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* DONATION CTA */}
-      <section className="pb-20 md:pb-28">
+      <section className="py-20 md:py-28">
         <div className="container-page">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-emerald p-10 text-center shadow-elegant md:p-16">
             <div className="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_30%_20%,white,transparent_45%),radial-gradient(circle_at_75%_80%,white,transparent_45%)]" />

@@ -1,13 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { ArrowRight, Heart, Leaf, Sprout, Users, MessageCircle, Mail } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { Lightbox } from "@/components/site/Lightbox";
 import logoJardim from "@/assets/logo-jardim-sara-nordeste.png";
 import jardimVista from "@/assets/jardim-vista.jpg";
 import jardimMudas from "@/assets/jardim-mudas.jpg";
 import jardimMudasFila from "@/assets/jardim-mudas-fila.jpg";
 import jardimMudas2 from "@/assets/jardim-mudas-2.jpg";
 import jardimProjetoVaso from "@/assets/jardim-projeto-vaso.jpg";
+
+type Categoria = "Tudo" | "Mudas" | "Projetos" | "Espaço";
+
+const galeria: { src: string; alt: string; categoria: Exclude<Categoria, "Tudo"> }[] = [
+  { src: jardimVista, alt: "Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas", categoria: "Espaço" },
+  { src: jardimMudas, alt: "Mudas verdes cultivadas em canteiros", categoria: "Mudas" },
+  { src: jardimMudasFila, alt: "Mudas organizadas em fileiras prontas para entrega", categoria: "Mudas" },
+  { src: jardimMudas2, alt: "Linha de mudas ornamentais ao lado do espaço de cultivo", categoria: "Mudas" },
+  { src: jardimProjetoVaso, alt: "Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina", categoria: "Projetos" },
+];
+
+const categorias: Categoria[] = ["Tudo", "Mudas", "Projetos", "Espaço"];
 
 export const Route = createFileRoute("/jardim")({
   head: () => ({
@@ -34,6 +48,13 @@ export const Route = createFileRoute("/jardim")({
 const SLOGAN = "Das Ruínas, Deus Criou Um Jardim.";
 
 function JardimPage() {
+  const [filtro, setFiltro] = useState<Categoria>("Tudo");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const visiveis = galeria.filter(
+    (g) => filtro === "Tudo" || g.categoria === filtro,
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
@@ -138,53 +159,74 @@ function JardimPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-3 md:auto-rows-[220px]">
-              <figure className="md:col-span-2 md:row-span-2 overflow-hidden rounded-3xl shadow-elegant">
-                <img
-                  src={jardimVista}
-                  alt="Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudas}
-                  alt="Mudas verdes cultivadas em canteiros"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudasFila}
-                  alt="Mudas organizadas em fileiras prontas para entrega"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
+            {/* Filtros */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+              {categorias.map((cat) => {
+                const ativo = filtro === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setFiltro(cat)}
+                    className="rounded-full border-2 px-5 py-2 text-sm font-bold transition-smooth"
+                    style={
+                      ativo
+                        ? {
+                            backgroundColor: "var(--jardim)",
+                            borderColor: "var(--jardim)",
+                            color: "white",
+                            boxShadow: "var(--shadow-jardim)",
+                          }
+                        : {
+                            borderColor: "color-mix(in oklab, var(--jardim) 30%, transparent)",
+                            color: "var(--jardim)",
+                          }
+                    }
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudas2}
-                  alt="Linha de mudas ornamentais ao lado do espaço de cultivo"
-                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimProjetoVaso}
-                  alt="Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina"
-                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+              {visiveis.map((img, i) => (
+                <figure
+                  key={img.src}
+                  onClick={() => setOpenIndex(i)}
+                  className="group relative cursor-zoom-in overflow-hidden rounded-3xl shadow-soft transition-all duration-500 hover:shadow-elegant animate-fade-in"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="h-64 w-full object-cover transition-smooth group-hover:scale-[1.05]"
+                    loading="lazy"
+                  />
+                  <span
+                    className="absolute left-3 top-3 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-jardim"
+                    style={{ backgroundColor: "var(--jardim)" }}
+                  >
+                    {img.categoria}
+                  </span>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
+
+        {openIndex !== null && (
+          <Lightbox
+            images={visiveis}
+            index={openIndex}
+            onClose={() => setOpenIndex(null)}
+            onPrev={() =>
+              setOpenIndex((i) => (i === null ? null : (i - 1 + visiveis.length) % visiveis.length))
+            }
+            onNext={() =>
+              setOpenIndex((i) => (i === null ? null : (i + 1) % visiveis.length))
+            }
+          />
+        )}
 
         {/* O QUE OFERECEMOS */}
         <section className="bg-white py-20 md:py-24">
