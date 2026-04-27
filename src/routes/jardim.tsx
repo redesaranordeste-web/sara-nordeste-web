@@ -159,53 +159,74 @@ function JardimPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-3 md:auto-rows-[220px]">
-              <figure className="md:col-span-2 md:row-span-2 overflow-hidden rounded-3xl shadow-elegant">
-                <img
-                  src={jardimVista}
-                  alt="Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudas}
-                  alt="Mudas verdes cultivadas em canteiros"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudasFila}
-                  alt="Mudas organizadas em fileiras prontas para entrega"
-                  className="h-full w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
+            {/* Filtros */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+              {categorias.map((cat) => {
+                const ativo = filtro === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setFiltro(cat)}
+                    className="rounded-full border-2 px-5 py-2 text-sm font-bold transition-smooth"
+                    style={
+                      ativo
+                        ? {
+                            backgroundColor: "var(--jardim)",
+                            borderColor: "var(--jardim)",
+                            color: "white",
+                            boxShadow: "var(--shadow-jardim)",
+                          }
+                        : {
+                            borderColor: "color-mix(in oklab, var(--jardim) 30%, transparent)",
+                            color: "var(--jardim)",
+                          }
+                    }
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimMudas2}
-                  alt="Linha de mudas ornamentais ao lado do espaço de cultivo"
-                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="overflow-hidden rounded-3xl shadow-soft">
-                <img
-                  src={jardimProjetoVaso}
-                  alt="Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina"
-                  className="h-72 w-full object-cover transition-smooth hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </figure>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+              {visiveis.map((img, i) => (
+                <figure
+                  key={img.src}
+                  onClick={() => setOpenIndex(i)}
+                  className="group relative cursor-zoom-in overflow-hidden rounded-3xl shadow-soft transition-all duration-500 hover:shadow-elegant animate-fade-in"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="h-64 w-full object-cover transition-smooth group-hover:scale-[1.05]"
+                    loading="lazy"
+                  />
+                  <span
+                    className="absolute left-3 top-3 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-jardim"
+                    style={{ backgroundColor: "var(--jardim)" }}
+                  >
+                    {img.categoria}
+                  </span>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
+
+        {openIndex !== null && (
+          <Lightbox
+            images={visiveis}
+            index={openIndex}
+            onClose={() => setOpenIndex(null)}
+            onPrev={() =>
+              setOpenIndex((i) => (i === null ? null : (i - 1 + visiveis.length) % visiveis.length))
+            }
+            onNext={() =>
+              setOpenIndex((i) => (i === null ? null : (i + 1) % visiveis.length))
+            }
+          />
+        )}
 
         {/* O QUE OFERECEMOS */}
         <section className="bg-white py-20 md:py-24">
