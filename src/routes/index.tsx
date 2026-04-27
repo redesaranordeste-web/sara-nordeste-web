@@ -223,7 +223,7 @@ function HomePage() {
       </section>
 
       {/* DONATION CTA */}
-      <section className="pb-20 md:pb-28">
+      <section className="py-20 md:py-28">
         <div className="container-page">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-emerald p-10 text-center shadow-elegant md:p-16">
             <div className="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_30%_20%,white,transparent_45%),radial-gradient(circle_at_75%_80%,white,transparent_45%)]" />
