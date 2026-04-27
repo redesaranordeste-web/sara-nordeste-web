@@ -3,6 +3,19 @@ import { ArrowRight, HandHeart, Heart, Users, Sprout, Calendar, Quote } from "lu
 import { PageShell } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import heroImg from "@/assets/hero-recovery.jpg";
+import leveMaisLogo from "@/assets/parceiro-leve-mais.png";
+import sosGenteLogo from "@/assets/parceiro-sos-gente.png";
+import doceModestinaLogo from "@/assets/parceiro-doce-modestina.png";
+import nutrifoodLogo from "@/assets/parceiro-nutrifood.png";
+import feitosaEletroLogo from "@/assets/parceiro-feitosa-eletro.png";
+
+const partnerLogos = [
+  { name: "Leve Mais Supermercado", logo: leveMaisLogo },
+  { name: "Instituto SOS Gente", logo: sosGenteLogo },
+  { name: "Hotel e Café Doce Modestina", logo: doceModestinaLogo },
+  { name: "Nutrifood", logo: nutrifoodLogo },
+  { name: "Feitosa Eletro", logo: feitosaEletroLogo },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -222,7 +235,41 @@ function HomePage() {
         </div>
       </section>
 
-      {/* DONATION CTA */}
+      {/* PARTNERS LOGO STRIP */}
+      <section className="border-y border-border bg-card py-14 md:py-16">
+        <div className="container-page text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary">
+            Quem caminha conosco
+          </p>
+          <h2 className="mt-2 text-2xl font-extrabold text-foreground md:text-3xl">
+            Parceiros que transformam lucro em propósito
+          </h2>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {partnerLogos.map((p) => (
+              <div
+                key={p.name}
+                className="flex h-16 w-28 items-center justify-center grayscale transition-smooth hover:grayscale-0 md:h-20 md:w-36"
+                title={p.name}
+              >
+                <img
+                  src={p.logo}
+                  alt={p.name}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              to="/parceiros"
+              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+            >
+              Ver todos os parceiros <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
       <section className="py-20 md:py-28">
         <div className="container-page">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-emerald p-10 text-center shadow-elegant md:p-16">
