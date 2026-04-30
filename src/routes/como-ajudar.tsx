@@ -106,14 +106,14 @@ function StatsCounters() {
   return (
     <div
       ref={ref}
-      className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
+      className="mx-auto mt-6 grid max-w-4xl grid-cols-3 gap-2 md:mt-10 md:gap-4"
     >
       {stats.map((s, i) => (
         <div
           key={s.label}
-          className="rounded-2xl border border-white/20 bg-white/10 px-6 py-5 text-center backdrop-blur-sm"
+          className="rounded-2xl border border-white/20 bg-white/10 px-3 py-4 text-center backdrop-blur-sm md:px-6 md:py-5"
         >
-          <div className="text-3xl font-extrabold text-white md:text-4xl">
+          <div className="text-xl font-extrabold text-white md:text-4xl">
             {s.raw ? (
               <>
                 {s.prefix}
@@ -127,7 +127,7 @@ function StatsCounters() {
               </>
             )}
           </div>
-          <div className="mt-1 text-sm font-medium text-white/85">{s.label}</div>
+          <div className="mt-1 text-xs font-medium text-white/85 md:text-sm">{s.label}</div>
         </div>
       ))}
     </div>
@@ -138,14 +138,14 @@ function HelpHero() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-gradient-emerald">
       <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_20%_20%,white,transparent_40%),radial-gradient(circle_at_80%_60%,white,transparent_45%)]" />
-      <div className="container-page relative py-16 text-center md:py-24">
+      <div className="container-page relative py-10 text-center md:py-24">
         <span className="inline-block rounded-full bg-white/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
           Como Ajudar
         </span>
-        <h1 className="mt-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl">
+        <h1 className="mt-4 text-2xl font-extrabold text-white md:text-5xl lg:text-6xl">
           Transforme Vidas. Seja Parte Dessa Missão.
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/90 md:mt-5 md:text-lg">
           Todos os dias, a Rede Sara Nordeste acolhe pessoas, alimenta famílias e
           constrói novos começos. Sua doação mantém essa missão viva.
         </p>
