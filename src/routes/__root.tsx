@@ -75,6 +75,13 @@ export const Route = createRootRoute({
       { name: "author", content: "Rede Sara Nordeste" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Rede Sara Nordeste — Transformando vidas com amor, fé e ação social" },
+      { name: "twitter:title", content: "Rede Sara Nordeste — Transformando vidas com amor, fé e ação social" },
+      { name: "description", content: "A Rede Sara Nordeste acolhe, capacita e transforma vidas desde 2009. Conheça nossos projetos e descubra como você pode fazer parte dessa missão." },
+      { property: "og:description", content: "A Rede Sara Nordeste acolhe, capacita e transforma vidas desde 2009. Conheça nossos projetos e descubra como você pode fazer parte dessa missão." },
+      { name: "twitter:description", content: "A Rede Sara Nordeste acolhe, capacita e transforma vidas desde 2009. Conheça nossos projetos e descubra como você pode fazer parte dessa missão." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cc192e1f-752f-444c-a509-23c612500464" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cc192e1f-752f-444c-a509-23c612500464" },
     ],
     links: [
       {
