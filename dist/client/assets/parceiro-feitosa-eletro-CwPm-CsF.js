@@ -1,0 +1,1 @@
+const s="/assets/parceiro-leve-mais-gOJwMVpx.png",o="/assets/parceiro-sos-gente-BClhpP5P.png",e="/assets/parceiro-doce-modestina-Bu7g454b.png",a="/assets/parceiro-nutrifood-CvrWzRRb.png",t="/assets/parceiro-feitosa-eletro-rjwmI0Ma.png";export{e as d,t as f,s as l,a as n,o as s};
