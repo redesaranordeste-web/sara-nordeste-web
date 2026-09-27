@@ -1,8 +1,8 @@
 import photo0 from "@/assets/equipe/francileide-patricia.jpeg";
 import photo1 from "@/assets/equipe/vanessa-cassimiro.jpeg";
+import fernandaPhoto from "@/assets/equipe/fernanda-lima.jpeg";
 import photo2 from "@/assets/equipe/willyam.jpeg";
 import photo3 from "@/assets/equipe/antonio-xavier.jpeg";
-import photo4 from "@/assets/equipe/edvaldo-santos.jpeg";
 import photo5 from "@/assets/equipe/manoel-cleures.jpeg";
 import photo6 from "@/assets/equipe/monica-alves.jpeg";
 import photo7 from "@/assets/equipe/haroldo-francisco.jpeg";
@@ -28,6 +28,15 @@ export const team = [
     position: "50% 25%",
   },
   {
+    id: "fernanda-lima",
+    description:
+      "Cuidar também é alimentar bem. Uma alimentação equilibrada faz parte da rotina de cuidado e bem-estar dos nossos acolhidos.",
+    name: "Fernanda Lima",
+    role: "Nutricionista",
+    photo: fernandaPhoto,
+    position: "50% 24%",
+  },
+  {
     id: "willyam",
     description:
       "Movimento, saúde, disciplina e qualidade de vida também fazem parte do processo de recuperação.",
@@ -44,15 +53,6 @@ export const team = [
     role: "Capelão",
     photo: photo3,
     position: "50% 22%",
-  },
-  {
-    id: "edvaldo-santos",
-    description:
-      "Cultivar também é cuidar. O aprendizado com plantas ornamentais aproxima a natureza da construção de novos caminhos.",
-    name: "Edvaldo Santos",
-    role: "Educador em técnica de cultivo de plantas ornamentais",
-    photo: photo4,
-    position: "50% 40%",
   },
   {
     id: "manoel-cleures",

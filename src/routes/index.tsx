@@ -32,8 +32,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content:
-          "Desde 2009, acolhimento, capacitação e ações sociais transformando comunidades.",
+        content: "Desde 2009, acolhimento, capacitação e ações sociais transformando comunidades.",
       },
     ],
   }),
@@ -66,22 +65,21 @@ function HomePage() {
               Rede Sara Nordeste · Desde 2009
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl">
-              Transformando vidas com{" "}
-              <span className="text-gold">amor, fé e ação social.</span>
+              Transformando vidas com <span className="text-gold">amor, fé e ação social.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
-              A Rede Sara Nordeste é uma organização social que atua desde 2009
-              promovendo acolhimento, recuperação e desenvolvimento humano. Com
-              diversas frentes de atuação, impactamos comunidades em situação de
-              vulnerabilidade por meio de ações concretas, capacitação e apoio
-              contínuo.
+              A Rede Sara Nordeste é uma organização social que atua desde 2009 promovendo
+              acolhimento, recuperação e desenvolvimento humano. Com diversas frentes de atuação,
+              impactamos comunidades em situação de vulnerabilidade por meio de ações concretas,
+              capacitação e apoio contínuo.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/quem-somos"
+                hash="equipe"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-bold text-petrol shadow-elegant transition-smooth hover:scale-[1.03]"
               >
-                Conheça nossa história <ArrowRight className="h-4 w-4" />
+                Conheça nossa equipe <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/projetos"
@@ -115,9 +113,7 @@ function HomePage() {
                 <p className="bg-gradient-emerald bg-clip-text text-2xl font-extrabold text-transparent md:text-3xl">
                   {s.value}
                 </p>
-                <p className="mt-1 text-sm font-semibold text-muted-foreground">
-                  {s.label}
-                </p>
+                <p className="mt-1 text-sm font-semibold text-muted-foreground">{s.label}</p>
               </div>
             </div>
           ))}
@@ -164,9 +160,7 @@ function HomePage() {
                 className="group rounded-2xl border border-border bg-card p-7 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant"
               >
                 <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {p.text}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
               </div>
             ))}
           </div>
@@ -213,9 +207,7 @@ function HomePage() {
                 className="relative min-w-[85%] shrink-0 snap-center rounded-3xl border border-border bg-card p-7 shadow-soft md:min-w-0 md:shrink"
               >
                 <Quote className="h-8 w-8 text-primary/30" aria-hidden="true" />
-                <p className="mt-3 text-base leading-relaxed text-foreground">
-                  “{d.texto}”
-                </p>
+                <p className="mt-3 text-base leading-relaxed text-foreground">“{d.texto}”</p>
                 <div className="mt-6 flex items-center gap-2 text-sm font-bold text-primary">
                   <Heart className="h-4 w-4 fill-current" />
                   {d.nome}
@@ -280,8 +272,8 @@ function HomePage() {
                 Sua doação transforma uma vida hoje.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/90 md:text-lg">
-                Cada contribuição mantém o acolhimento, a alimentação, a capacitação
-                e as ações sociais da Rede Sara Nordeste.
+                Cada contribuição mantém o acolhimento, a alimentação, a capacitação e as ações
+                sociais da Rede Sara Nordeste.
               </p>
               <Link
                 to="/como-ajudar"

@@ -3,6 +3,8 @@ import { Heart, Eye, Compass, HandHeart, Shield, Sparkles, Users } from "lucide-
 import { PageShell, PageHero } from "@/components/site/PageShell";
 import houseImg from "@/assets/fachada-sara-nordeste.jpg";
 import fundadoresImg from "@/assets/equipe/fundadores.jpeg";
+import edvaldoImg from "@/assets/equipe/edvaldo-santos.jpeg";
+import livroOReinoImg from "@/assets/o-reino-itamar-felix-damazio.jpeg";
 import { TeamSection } from "@/components/site/TeamSection";
 
 export const Route = createFileRoute("/quem-somos")({
@@ -117,11 +119,11 @@ function AboutPage() {
             <div className="overflow-hidden rounded-3xl bg-gradient-to-b from-secondary/60 to-background p-6 shadow-elegant">
               <img
                 src={fundadoresImg}
-                alt="Itamar Felix, Lucélia Feitosa e família"
+                alt="Itamar Félix e Lucélia Feitosa"
                 className="mx-auto h-auto w-full max-w-md object-contain"
                 loading="lazy"
-                width={640}
-                height={640}
+                width={1080}
+                height={1350}
               />
             </div>
           </div>
@@ -130,7 +132,7 @@ function AboutPage() {
               Fundadores
             </span>
             <h2 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">
-              Itamar Felix, Lucélia Feitosa e família
+              Itamar Félix e Lucélia Feitosa
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               <strong className="text-foreground">Pastor Itamar Félix Damazio</strong> e sua esposa{" "}
@@ -159,6 +161,59 @@ function AboutPage() {
                 <p className="mt-1 text-sm text-muted-foreground">Acolhimento e gestão</p>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="container-page mt-12">
+          <div className="grid items-center gap-8 rounded-3xl bg-foreground p-6 text-background shadow-elegant sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] md:p-10">
+            <img
+              src={livroOReinoImg}
+              alt="Capa do livro O Reino, de Itamar Félix Damazio"
+              className="mx-auto w-full max-w-48 rounded-lg shadow-lg"
+              loading="lazy"
+              width={853}
+              height={1280}
+            />
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary-foreground">
+                Livro do fundador
+              </span>
+              <h3 className="mt-3 text-3xl font-extrabold md:text-4xl">O Reino</h3>
+              <p className="mt-3 text-base leading-relaxed text-background/80">
+                Obra de Itamar Félix Damazio, fundador da Rede Sara Nordeste.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-secondary/40 py-16 md:py-20" aria-labelledby="vice-president-title">
+        <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div className="overflow-hidden rounded-3xl shadow-elegant">
+            <img
+              src={edvaldoImg}
+              alt="Edvaldo Santos"
+              className="aspect-[4/3] w-full object-cover object-[50%_38%] lg:aspect-[4/4]"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+              Vice-presidência
+            </span>
+            <h2
+              id="vice-president-title"
+              className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl"
+            >
+              Edvaldo Santos
+            </h2>
+            <p className="mt-3 text-lg font-semibold text-primary">Vice-presidente</p>
+            <p className="mt-2 text-base font-semibold text-foreground">
+              Educador em técnica de cultivo de plantas ornamentais
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Cultivar também é cuidar. O aprendizado com plantas ornamentais aproxima a natureza da
+              construção de novos caminhos.
+            </p>
           </div>
         </div>
       </section>

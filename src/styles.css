@@ -1,10 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap");
 
 @theme inline {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -46,54 +45,53 @@
   --radius: 0.75rem;
 
   /* Base surfaces */
-  --background: oklch(0.995 0.005 150);
-  --foreground: oklch(0.22 0.03 200);
+  --background: oklch(0.995 0.005 177);
+  --foreground: oklch(0.22 0.035 177);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.03 200);
+  --card-foreground: oklch(0.22 0.035 177);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 200);
+  --popover-foreground: oklch(0.22 0.035 177);
 
-  /* Primary: emerald green — esperança, saúde */
-  --primary: oklch(0.52 0.13 165);
-  --primary-foreground: oklch(0.99 0.005 150);
+  /* Verde-petróleo da identidade enviada */
+  --primary: oklch(0.23 0.05 178.42);
+  --primary-foreground: oklch(0.99 0.005 177);
 
-  /* Petrol blue — confiança */
-  --petrol: oklch(0.42 0.07 215);
-  --petrol-foreground: oklch(0.99 0.005 150);
+  --petrol: oklch(0.23 0.05 178.42);
+  --petrol-foreground: oklch(0.99 0.005 177);
 
   /* Soft gold — destaques */
   --gold: oklch(0.78 0.12 85);
   --gold-foreground: oklch(0.25 0.04 80);
 
-  --secondary: oklch(0.96 0.015 170);
-  --secondary-foreground: oklch(0.28 0.04 200);
+  --secondary: oklch(0.96 0.018 177);
+  --secondary-foreground: oklch(0.28 0.04 177);
 
-  --muted: oklch(0.965 0.01 180);
-  --muted-foreground: oklch(0.48 0.025 210);
+  --muted: oklch(0.965 0.012 177);
+  --muted-foreground: oklch(0.46 0.025 177);
 
-  --accent: oklch(0.94 0.03 165);
-  --accent-foreground: oklch(0.28 0.06 200);
+  --accent: oklch(0.94 0.03 177);
+  --accent-foreground: oklch(0.28 0.06 177);
 
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.91 0.012 180);
-  --input: oklch(0.91 0.012 180);
-  --ring: oklch(0.52 0.13 165);
+  --border: oklch(0.91 0.012 177);
+  --input: oklch(0.91 0.012 177);
+  --ring: oklch(0.42 0.08 178.42);
 
   /* Gradients & shadows */
   --gradient-hero: linear-gradient(
     135deg,
-    oklch(0.42 0.07 215 / 0.85),
-    oklch(0.32 0.06 200 / 0.7) 50%,
-    oklch(0.52 0.13 165 / 0.65)
+    oklch(0.23 0.05 178.42 / 0.9),
+    oklch(0.2 0.045 178.42 / 0.8) 50%,
+    oklch(0.31 0.065 178.42 / 0.7)
   );
-  --gradient-emerald: linear-gradient(135deg, oklch(0.52 0.13 165), oklch(0.42 0.07 215));
+  --gradient-emerald: linear-gradient(135deg, oklch(0.23 0.05 178.42), oklch(0.31 0.065 178.42));
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.13 88), oklch(0.72 0.14 75));
 
-  --shadow-soft: 0 4px 20px -8px oklch(0.42 0.07 215 / 0.18);
-  --shadow-elegant: 0 18px 50px -20px oklch(0.42 0.07 215 / 0.35);
+  --shadow-soft: 0 4px 20px -8px oklch(0.23 0.05 178.42 / 0.18);
+  --shadow-elegant: 0 18px 50px -20px oklch(0.23 0.05 178.42 / 0.35);
   --shadow-gold: 0 10px 30px -10px oklch(0.78 0.12 85 / 0.55);
 
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -107,29 +105,29 @@
 }
 
 .dark {
-  --background: oklch(0.18 0.025 215);
-  --foreground: oklch(0.97 0.01 170);
-  --card: oklch(0.22 0.03 215);
-  --card-foreground: oklch(0.97 0.01 170);
-  --popover: oklch(0.22 0.03 215);
-  --popover-foreground: oklch(0.97 0.01 170);
-  --primary: oklch(0.68 0.14 165);
-  --primary-foreground: oklch(0.18 0.025 215);
-  --petrol: oklch(0.55 0.09 215);
+  --background: oklch(0.18 0.025 177);
+  --foreground: oklch(0.97 0.01 177);
+  --card: oklch(0.22 0.03 177);
+  --card-foreground: oklch(0.97 0.01 177);
+  --popover: oklch(0.22 0.03 177);
+  --popover-foreground: oklch(0.97 0.01 177);
+  --primary: oklch(0.72 0.1 177);
+  --primary-foreground: oklch(0.18 0.025 177);
+  --petrol: oklch(0.62 0.08 177);
   --petrol-foreground: oklch(0.99 0 0);
   --gold: oklch(0.82 0.13 85);
   --gold-foreground: oklch(0.2 0.04 80);
-  --secondary: oklch(0.28 0.04 210);
-  --secondary-foreground: oklch(0.97 0.01 170);
-  --muted: oklch(0.28 0.04 210);
-  --muted-foreground: oklch(0.72 0.02 200);
-  --accent: oklch(0.32 0.05 200);
-  --accent-foreground: oklch(0.97 0.01 170);
+  --secondary: oklch(0.28 0.04 177);
+  --secondary-foreground: oklch(0.97 0.01 177);
+  --muted: oklch(0.28 0.04 177);
+  --muted-foreground: oklch(0.72 0.02 177);
+  --accent: oklch(0.32 0.05 177);
+  --accent-foreground: oklch(0.97 0.01 177);
   --destructive: oklch(0.65 0.2 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.68 0.14 165);
+  --ring: oklch(0.72 0.1 177);
 }
 
 @layer base {
@@ -218,12 +216,12 @@
   }
 }
 
-/* Equipe usa a paleta verde e azul-petróleo original do site. */
+/* Equipe acompanha a cor principal do site. */
 .team-section {
   scroll-margin-top: 6rem;
   padding: 88px 0;
-  background: #f4faf7;
-  color: #24454b;
+  background: var(--secondary);
+  color: var(--foreground);
 }
 .team-intro {
   display: grid;
@@ -234,7 +232,7 @@
   margin: auto;
 }
 .team-eyebrow {
-  color: #158566;
+  color: var(--primary);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -248,7 +246,7 @@
 }
 .team-intro h2 em {
   display: block;
-  color: #158566;
+  color: var(--primary);
   font-family: var(--font-serif);
   font-weight: 600;
 }
@@ -261,7 +259,7 @@
 .team-purpose {
   margin-top: 32px;
   padding-left: 24px;
-  border-left: 3px solid #158566;
+  border-left: 3px solid var(--primary);
 }
 .team-purpose h3 {
   font-size: 15px;
@@ -341,7 +339,7 @@
   flex-direction: column;
   padding: 0 24px 26px;
   min-height: 270px;
-  border-top: 4px solid #158566;
+  border-top: 4px solid var(--primary);
 }
 .team-role {
   align-self: flex-start;
@@ -349,7 +347,7 @@
   margin-top: -1px;
   border-radius: 0 0 14px 14px;
   padding: 10px 16px;
-  background: #158566;
+  background: var(--primary);
   color: white;
   font-size: 13px;
   font-weight: 800;
@@ -374,7 +372,7 @@
   border-radius: 28px;
   padding: 56px 24px;
   text-align: center;
-  background: #24545b;
+  background: var(--primary);
   color: white;
 }
 .team-closing .team-eyebrow {
