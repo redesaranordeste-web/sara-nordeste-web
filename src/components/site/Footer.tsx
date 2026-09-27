@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
-import logo from "@/assets/logo-sara-nordeste.png";
+import logo from "@/assets/equipe/identidade-sara.jpeg";
 
 export function Footer() {
   return (
@@ -8,31 +8,61 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Rede Sara Nordeste" className="h-12 w-12 rounded-full object-cover" />
+            <img
+              src={logo}
+              alt="Rede Sara Nordeste"
+              className="h-12 w-12 rounded-md object-contain"
+            />
             <div>
               <p className="text-lg font-extrabold">Rede Sara Nordeste</p>
               <p className="text-xs opacity-80">Transformando vidas desde 2009</p>
             </div>
           </div>
           <p className="mt-4 text-sm leading-relaxed opacity-85">
-            Organização social que promove acolhimento, capacitação e ações sociais
-            no Nordeste do Brasil.
+            Organização social que promove acolhimento, capacitação e ações sociais no Nordeste do
+            Brasil.
           </p>
-          <p className="mt-4 text-xs opacity-75">
-            CNPJ regularizado desde 2013.
-          </p>
+          <p className="mt-4 text-xs opacity-75">CNPJ regularizado desde 2013.</p>
         </div>
 
         <div>
           <h3 className="text-sm font-bold uppercase tracking-wider opacity-90">Navegação</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/" className="opacity-85 hover:opacity-100">Início</Link></li>
-            <li><Link to="/quem-somos" className="opacity-85 hover:opacity-100">Quem Somos</Link></li>
-            <li><Link to="/projetos" className="opacity-85 hover:opacity-100">Projetos</Link></li>
-            <li><Link to="/jardim" className="opacity-85 hover:opacity-100">Jardim Sara Nordeste</Link></li>
-            <li><Link to="/parceiros" className="opacity-85 hover:opacity-100">Conheça nossos parceiros →</Link></li>
-            <li><Link to="/como-ajudar" className="opacity-85 hover:opacity-100">Como Ajudar</Link></li>
-            <li><Link to="/contato" className="opacity-85 hover:opacity-100">Contato</Link></li>
+            <li>
+              <Link to="/" className="opacity-85 hover:opacity-100">
+                Início
+              </Link>
+            </li>
+            <li>
+              <Link to="/quem-somos" className="opacity-85 hover:opacity-100">
+                Quem Somos
+              </Link>
+            </li>
+            <li>
+              <Link to="/projetos" className="opacity-85 hover:opacity-100">
+                Projetos
+              </Link>
+            </li>
+            <li>
+              <Link to="/jardim" className="opacity-85 hover:opacity-100">
+                Jardim Sara Nordeste
+              </Link>
+            </li>
+            <li>
+              <Link to="/parceiros" className="opacity-85 hover:opacity-100">
+                Conheça nossos parceiros →
+              </Link>
+            </li>
+            <li>
+              <Link to="/como-ajudar" className="opacity-85 hover:opacity-100">
+                Como Ajudar
+              </Link>
+            </li>
+            <li>
+              <Link to="/contato" className="opacity-85 hover:opacity-100">
+                Contato
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -42,7 +72,8 @@ export function Footer() {
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
               <span className="opacity-85">
-                Rua VC UM, Setor Cinco — Enseadas dos Corais<br />
+                Rua VC UM, Setor Cinco — Enseadas dos Corais
+                <br />
                 Cabo de Santo Agostinho — PE
               </span>
             </li>

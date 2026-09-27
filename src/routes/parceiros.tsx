@@ -1,11 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  ExternalLink,
-  Handshake,
-  Lightbulb,
-  UtensilsCrossed,
-} from "lucide-react";
+import { ArrowRight, ExternalLink, Handshake, Lightbulb, UtensilsCrossed } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import leveMaisLogo from "@/assets/parceiro-leve-mais.png";
@@ -26,8 +20,7 @@ export const Route = createFileRoute("/parceiros")({
       { property: "og:title", content: "Parceiros — Rede Sara Nordeste" },
       {
         property: "og:description",
-        content:
-          "Empresas que transformam lucro em propósito apoiando a Rede Sara Nordeste.",
+        content: "Empresas que transformam lucro em propósito apoiando a Rede Sara Nordeste.",
       },
     ],
   }),
@@ -105,9 +98,15 @@ const partners: Partner[] = [
 
 const trocoSteps = [
   { emoji: "🛒", text: "Você faz suas compras no Leve Mais Supermercado normalmente." },
-  { emoji: "💰", text: "No caixa, arredonde seu troco — o atendente perguntará se deseja doar o troco." },
+  {
+    emoji: "💰",
+    text: "No caixa, arredonde seu troco — o atendente perguntará se deseja doar o troco.",
+  },
   { emoji: "💚", text: "O valor é destinado diretamente à Rede Sara Nordeste." },
-  { emoji: "🌱", text: "Sua moeda vira vida — alimentação, acolhimento e dignidade para quem precisa." },
+  {
+    emoji: "🌱",
+    text: "Sua moeda vira vida — alimentação, acolhimento e dignidade para quem precisa.",
+  },
 ];
 
 const partnershipForms = [
@@ -175,9 +174,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
       <div className="mt-auto pt-6">
         <a
           href={partner.cta.href}
-          {...(partner.cta.external
-            ? { target: "_blank", rel: "noopener noreferrer" }
-            : {})}
+          {...(partner.cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-smooth hover:scale-[1.03] hover:bg-primary/90"
         >
           {partner.cta.label}
@@ -202,9 +199,8 @@ function PartnersPage() {
             Quem caminha com a gente
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-            A Rede Sara Nordeste não age sozinha. Cada parceiro representa uma
-            decisão de transformar o lucro em propósito e os negócios em bênção
-            para quem mais precisa.
+            A Rede Sara Nordeste não age sozinha. Cada parceiro representa uma decisão de
+            transformar o lucro em propósito e os negócios em bênção para quem mais precisa.
           </p>
         </div>
       </section>
@@ -226,10 +222,7 @@ function PartnersPage() {
       </section>
 
       {/* TROCO SOLIDÁRIO */}
-      <section
-        id="troco-solidario"
-        className="scroll-mt-24 bg-gradient-emerald py-20 md:py-24"
-      >
+      <section id="troco-solidario" className="scroll-mt-24 bg-gradient-emerald py-20 md:py-24">
         <div className="container-page">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-block rounded-full bg-white/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
@@ -255,9 +248,7 @@ function PartnersPage() {
                 <div className="mt-4 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
                   Etapa {i + 1}
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-white/90">
-                  {step.text}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-white/90">{step.text}</p>
                 {i < trocoSteps.length - 1 && (
                   <span
                     aria-hidden
@@ -271,18 +262,11 @@ function PartnersPage() {
           </ol>
 
           <p className="mx-auto mt-12 max-w-3xl rounded-3xl bg-white/10 p-8 text-center text-lg font-semibold leading-relaxed text-white backdrop-blur-sm md:text-xl">
-            “Uma moeda pode parecer pouco. Mas quando milhares de pessoas fazem
-            o mesmo, ela muda vidas.”
+            “Uma moeda pode parecer pouco. Mas quando milhares de pessoas fazem o mesmo, ela muda
+            vidas.”
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            {/* TODO: adicionar link do Leve Mais Supermercado */}
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-petrol shadow-elegant transition-smooth hover:scale-[1.03]"
-            >
-              Conheça o Leve Mais
-            </a>
             <a
               href="#seja-parceiro"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/70 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-smooth hover:bg-white hover:text-petrol"
@@ -311,12 +295,8 @@ function PartnersPage() {
                 <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-emerald text-3xl">
                   <span aria-hidden>{f.emoji}</span>
                 </div>
-                <h3 className="mt-4 text-lg font-extrabold text-foreground">
-                  {f.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {f.text}
-                </p>
+                <h3 className="mt-4 text-lg font-extrabold text-foreground">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
               </div>
             ))}
           </div>
@@ -351,9 +331,7 @@ function PartnersPage() {
                 <p className="bg-gradient-emerald bg-clip-text text-4xl font-extrabold text-transparent md:text-5xl">
                   {item.value}
                 </p>
-                <p className="mt-3 text-sm font-semibold text-foreground">
-                  {item.label}
-                </p>
+                <p className="mt-3 text-sm font-semibold text-foreground">{item.label}</p>
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {item.source}
                 </p>

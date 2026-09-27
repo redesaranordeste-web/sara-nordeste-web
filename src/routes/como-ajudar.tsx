@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  Check,
-  Copy,
-  GraduationCap,
-  Heart,
-  Home as HomeIcon,
-  Sparkles,
-  Zap,
-} from "lucide-react";
+import { Check, Copy, GraduationCap, Heart, Home as HomeIcon, Sparkles, Zap } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import qrCodePix from "@/assets/qrcode-pix.png";
@@ -25,8 +17,7 @@ export const Route = createFileRoute("/como-ajudar")({
       { property: "og:title", content: "Como Ajudar — Rede Sara Nordeste" },
       {
         property: "og:description",
-        content:
-          "Pix, doação de itens e o impacto real da sua contribuição na Rede Sara Nordeste.",
+        content: "Pix, doação de itens e o impacto real da sua contribuição na Rede Sara Nordeste.",
       },
     ],
   }),
@@ -53,8 +44,18 @@ const items = [
 
 const impact = [
   { icon: Heart, emoji: "💛", title: "Você doa", text: "Sua contribuição entra na rede." },
-  { icon: HomeIcon, emoji: "🏠", title: "Mantemos o acolhimento", text: "Famílias seguem amparadas." },
-  { icon: GraduationCap, emoji: "📚", title: "Financiamos cursos", text: "Geração de renda e dignidade." },
+  {
+    icon: HomeIcon,
+    emoji: "🏠",
+    title: "Mantemos o acolhimento",
+    text: "Famílias seguem amparadas.",
+  },
+  {
+    icon: GraduationCap,
+    emoji: "📚",
+    title: "Financiamos cursos",
+    text: "Geração de renda e dignidade.",
+  },
   { icon: Sparkles, emoji: "🌱", title: "Vidas são restauradas", text: "Histórias recomeçam." },
 ];
 
@@ -104,10 +105,7 @@ function StatsCounters() {
   const values = [v0, v1, v2];
 
   return (
-    <div
-      ref={ref}
-      className="mx-auto mt-6 grid max-w-4xl grid-cols-3 gap-2 md:mt-10 md:gap-4"
-    >
+    <div ref={ref} className="mx-auto mt-6 grid max-w-4xl grid-cols-3 gap-2 md:mt-10 md:gap-4">
       {stats.map((s, i) => (
         <div
           key={s.label}
@@ -146,8 +144,8 @@ function HelpHero() {
           Transforme Vidas. Seja Parte Dessa Missão.
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/90 md:mt-5 md:text-lg">
-          Todos os dias, a Rede Sara Nordeste acolhe pessoas, alimenta famílias e
-          constrói novos começos. Sua doação mantém essa missão viva.
+          Todos os dias, a Rede Sara Nordeste acolhe pessoas, alimenta famílias e constrói novos
+          começos. Sua doação mantém essa missão viva.
         </p>
         <StatsCounters />
       </div>
@@ -157,14 +155,16 @@ function HelpHero() {
 
 function PixCard() {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const onCopy = async () => {
+    setCopyError(false);
     try {
       await navigator.clipboard.writeText(PIX_KEY_RAW);
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch {
-      // fallback silencioso
+      setCopyError(true);
     }
   };
 
@@ -176,7 +176,7 @@ function PixCard() {
         borderColor: "var(--jardim)",
       }}
     >
-      <div className="grid gap-8 md:grid-cols-[1fr,auto] md:items-center">
+      <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
         <div>
           <div className="flex items-center gap-3">
             <div
@@ -220,9 +220,13 @@ function PixCard() {
                 </>
               )}
             </button>
+            {copyError && (
+              <p role="alert" className="mt-3 text-sm text-destructive">
+                Não foi possível copiar. Selecione a chave acima e copie manualmente.
+              </p>
+            )}
             <p className="mt-4 text-sm text-muted-foreground">
-              <strong className="text-foreground">Favorecido:</strong> ONG Sara
-              Nordeste
+              <strong className="text-foreground">Favorecido:</strong> ONG Sara Nordeste
             </p>
           </div>
 
@@ -286,9 +290,7 @@ function HelpPage() {
                 <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-emerald text-3xl">
                   <span aria-hidden>{it.emoji}</span>
                 </div>
-                <h4 className="mt-4 text-base font-extrabold text-foreground">
-                  {it.title}
-                </h4>
+                <h4 className="mt-4 text-base font-extrabold text-foreground">{it.title}</h4>
               </div>
             ))}
           </div>
@@ -299,12 +301,7 @@ function HelpPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-white shadow-elegant transition-smooth hover:scale-[1.03]"
             >
-              <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden
-              >
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.46 0 .12 5.34.12 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 0 0 5.77 1.47h.01c6.58 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.45-8.43Zm-8.48 18.3h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.72.97.99-3.62-.23-.37a9.88 9.88 0 1 1 18.34-5.25c0 5.46-4.45 9.86-9.97 9.86Zm5.45-7.39c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
               </svg>
               Combinar entrega de doação
@@ -340,12 +337,8 @@ function HelpPage() {
                 <div className="mt-4 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
                   Etapa {i + 1}
                 </div>
-                <h3 className="mt-3 text-lg font-extrabold text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85">
-                  {step.text}
-                </p>
+                <h3 className="mt-3 text-lg font-extrabold text-white">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/85">{step.text}</p>
                 {i < impact.length - 1 && (
                   <span
                     aria-hidden
@@ -359,8 +352,8 @@ function HelpPage() {
           </ol>
 
           <p className="mx-auto mt-14 max-w-3xl rounded-3xl bg-white/10 p-8 text-center text-lg font-semibold leading-relaxed text-white backdrop-blur-sm md:text-xl">
-            “Talvez você nunca conheça a pessoa que será ajudada. Mas ela vai
-            sentir o impacto da sua decisão.”
+            “Talvez você nunca conheça a pessoa que será ajudada. Mas ela vai sentir o impacto da
+            sua decisão.”
           </p>
         </div>
       </section>

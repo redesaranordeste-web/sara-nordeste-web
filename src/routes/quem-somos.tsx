@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Eye, Compass, HandHeart, Shield, Sparkles, Users } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
 import houseImg from "@/assets/fachada-sara-nordeste.jpg";
-import fundadoresImg from "@/assets/fundadores-sara-nordeste.png";
+import fundadoresImg from "@/assets/equipe/fundadores.jpeg";
+import { TeamSection } from "@/components/site/TeamSection";
 
 export const Route = createFileRoute("/quem-somos")({
   head: () => ({
@@ -11,13 +12,12 @@ export const Route = createFileRoute("/quem-somos")({
       {
         name: "description",
         content:
-          "Fundada em 2009 por Itamar e Lucélia Damazio, a Rede Sara Nordeste acolhe e transforma vidas em situação de vulnerabilidade no Nordeste do Brasil.",
+          "Fundada em 2009 por Itamar Felix e Lucélia Feitosa, a Rede Sara Nordeste acolhe e transforma vidas em situação de vulnerabilidade no Nordeste do Brasil.",
       },
       { property: "og:title", content: "Quem Somos — Rede Sara Nordeste" },
       {
         property: "og:description",
-        content:
-          "Nossa história, missão, visão e valores na transformação social desde 2009.",
+        content: "Nossa história, missão, visão e valores na transformação social desde 2009.",
       },
     ],
   }),
@@ -55,6 +55,15 @@ function AboutPage() {
         description="Desde 2009 acolhendo, capacitando e restaurando histórias no Nordeste do Brasil."
       />
 
+      <div className="container-page pt-8 text-center">
+        <a
+          href="#equipe"
+          className="inline-flex rounded-full border border-primary px-6 py-3 text-sm font-bold text-primary hover:bg-accent"
+        >
+          Conheça nossa equipe ↓
+        </a>
+      </div>
+
       <section className="py-20 md:py-24">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -67,24 +76,20 @@ function AboutPage() {
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 A ONG Sara Nordeste teve início no ano de 2009, sendo fundada por{" "}
-                <strong className="text-foreground">Itamar Félix Damazio</strong> —
-                hoje conhecido como Pastor Itamar Félix Damazio — ao lado de sua
-                esposa{" "}
-                <strong className="text-foreground">
-                  Lucélia Lima Feitosa Damazio
-                </strong>
-                .
+                <strong className="text-foreground">Itamar Félix Damazio</strong> — hoje conhecido
+                como Pastor Itamar Félix Damazio — ao lado de sua esposa{" "}
+                <strong className="text-foreground">Lucélia Lima Feitosa Damazio</strong>.
               </p>
               <p>
-                Desde sua origem, a instituição nasceu com o propósito de acolher e
-                transformar vidas, especialmente de pessoas em situação de
-                vulnerabilidade social. Em 2013, a ONG foi oficialmente regularizada,
-                consolidando sua atuação de forma legal e estruturada.
+                Desde sua origem, a instituição nasceu com o propósito de acolher e transformar
+                vidas, especialmente de pessoas em situação de vulnerabilidade social. Em 2013, a
+                ONG foi oficialmente regularizada, consolidando sua atuação de forma legal e
+                estruturada.
               </p>
               <p>
                 Com o passar dos anos, evoluiu de comunidade terapêutica para a{" "}
-                <strong className="text-foreground">Rede Sara Nordeste</strong>,
-                ampliando suas ações e seu impacto social.
+                <strong className="text-foreground">Rede Sara Nordeste</strong>, ampliando suas
+                ações e seu impacto social.
               </p>
             </div>
           </div>
@@ -99,9 +104,7 @@ function AboutPage() {
             />
             <div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-gradient-gold px-6 py-4 text-gold-foreground shadow-gold md:block">
               <p className="text-3xl font-extrabold">2009</p>
-              <p className="text-xs font-semibold uppercase tracking-wider">
-                Início da jornada
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-wider">Início da jornada</p>
             </div>
           </div>
         </div>
@@ -114,11 +117,11 @@ function AboutPage() {
             <div className="overflow-hidden rounded-3xl bg-gradient-to-b from-secondary/60 to-background p-6 shadow-elegant">
               <img
                 src={fundadoresImg}
-                alt="Pastor Itamar Félix Damazio e Lucélia Lima Feitosa Damazio, fundadores da Rede Sara Nordeste"
+                alt="Itamar Felix, Lucélia Feitosa e família"
                 className="mx-auto h-auto w-full max-w-md object-contain"
                 loading="lazy"
-                width={940}
-                height={760}
+                width={640}
+                height={640}
               />
             </div>
           </div>
@@ -127,18 +130,14 @@ function AboutPage() {
               Fundadores
             </span>
             <h2 className="mt-3 text-3xl font-extrabold text-foreground md:text-4xl">
-              Itamar e Lucélia Damazio
+              Itamar Felix, Lucélia Feitosa e família
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">Pastor Itamar Félix Damazio</strong>{" "}
-              e sua esposa{" "}
-              <strong className="text-foreground">
-                Lucélia Lima Feitosa Damazio
-              </strong>{" "}
-              são o coração da Rede Sara Nordeste. Movidos por fé e amor ao próximo,
-              dedicam suas vidas ao acolhimento de pessoas em situação de
-              vulnerabilidade, conduzindo desde 2009 uma missão de restauração,
-              dignidade e esperança no Nordeste do Brasil.
+              <strong className="text-foreground">Pastor Itamar Félix Damazio</strong> e sua esposa{" "}
+              <strong className="text-foreground">Lucélia Lima Feitosa Damazio</strong> são o
+              coração da Rede Sara Nordeste. Movidos por fé e amor ao próximo, dedicam suas vidas ao
+              acolhimento de pessoas em situação de vulnerabilidade, conduzindo desde 2009 uma
+              missão de restauração, dignidade e esperança no Nordeste do Brasil.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
@@ -148,9 +147,7 @@ function AboutPage() {
                 <p className="mt-2 text-sm font-semibold text-foreground">
                   Pastor Itamar Félix Damazio
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Fundador e presidente
-                </p>
+                <p className="mt-1 text-sm text-muted-foreground">Fundador e presidente</p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">
@@ -159,14 +156,14 @@ function AboutPage() {
                 <p className="mt-2 text-sm font-semibold text-foreground">
                   Lucélia Lima Feitosa Damazio
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Acolhimento e gestão
-                </p>
+                <p className="mt-1 text-sm text-muted-foreground">Acolhimento e gestão</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <TeamSection />
 
       <section className="bg-secondary/60 py-20 md:py-24">
         <div className="container-page">
@@ -180,9 +177,7 @@ function AboutPage() {
                   <p.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-foreground">{p.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {p.text}
-                </p>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{p.text}</p>
               </div>
             ))}
           </div>

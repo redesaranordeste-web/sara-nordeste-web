@@ -14,11 +14,27 @@ import jardimProjetoVaso from "@/assets/jardim-projeto-vaso.jpg";
 type Categoria = "Tudo" | "Mudas" | "Projetos" | "Espaço";
 
 const galeria: { src: string; alt: string; categoria: Exclude<Categoria, "Tudo"> }[] = [
-  { src: jardimVista, alt: "Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas", categoria: "Espaço" },
+  {
+    src: jardimVista,
+    alt: "Vista do Jardim Sara Nordeste com caminho entre canteiros de mudas",
+    categoria: "Espaço",
+  },
   { src: jardimMudas, alt: "Mudas verdes cultivadas em canteiros", categoria: "Mudas" },
-  { src: jardimMudasFila, alt: "Mudas organizadas em fileiras prontas para entrega", categoria: "Mudas" },
-  { src: jardimMudas2, alt: "Linha de mudas ornamentais ao lado do espaço de cultivo", categoria: "Mudas" },
-  { src: jardimProjetoVaso, alt: "Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina", categoria: "Projetos" },
+  {
+    src: jardimMudasFila,
+    alt: "Mudas organizadas em fileiras prontas para entrega",
+    categoria: "Mudas",
+  },
+  {
+    src: jardimMudas2,
+    alt: "Linha de mudas ornamentais ao lado do espaço de cultivo",
+    categoria: "Mudas",
+  },
+  {
+    src: jardimProjetoVaso,
+    alt: "Projeto entregue: vaso ornamental com planta de folhas largas em área de piscina",
+    categoria: "Projetos",
+  },
 ];
 
 const categorias: Categoria[] = ["Tudo", "Mudas", "Projetos", "Espaço"];
@@ -35,12 +51,11 @@ export const Route = createFileRoute("/jardim")({
       { property: "og:title", content: "Jardim Sara Nordeste" },
       {
         property: "og:description",
-        content: "Das Ruínas, Deus Criou Um Jardim. Conheça o projeto que une paisagismo e propósito.",
+        content:
+          "Das Ruínas, Deus Criou Um Jardim. Conheça o projeto que une paisagismo e propósito.",
       },
     ],
-    links: [
-      { rel: "icon", href: "/jardim-favicon.png", type: "image/png" },
-    ],
+    links: [{ rel: "icon", href: "/jardim-favicon.png", type: "image/png" }],
   }),
   component: JardimPage,
 });
@@ -51,9 +66,7 @@ function JardimPage() {
   const [filtro, setFiltro] = useState<Categoria>("Tudo");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const visiveis = galeria.filter(
-    (g) => filtro === "Tudo" || g.categoria === filtro,
-  );
+  const visiveis = galeria.filter((g) => filtro === "Tudo" || g.categoria === filtro);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -81,8 +94,8 @@ function JardimPage() {
               {SLOGAN}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Cultivado por mãos que estão sendo restauradas. Cada planta é uma
-              história de recomeço.
+              Cultivado por mãos que estão sendo restauradas. Cada planta é uma história de
+              recomeço.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -124,15 +137,14 @@ function JardimPage() {
                 Onde havia ruína, hoje floresce vida
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-                O Jardim Sara Nordeste nasce dentro do nosso espaço de acolhimento.
-                Os residentes em processo de recuperação cultivam plantas
-                ornamentais — encontrando ocupação, aprendizado e geração de renda.
-                Toda a renda é revertida para a manutenção da instituição.
+                O Jardim Sara Nordeste nasce dentro do nosso espaço de acolhimento. Os residentes em
+                processo de recuperação cultivam plantas ornamentais — encontrando ocupação,
+                aprendizado e geração de renda. Toda a renda é revertida para a manutenção da
+                instituição.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                Mais do que uma compra, é uma parceria. Atendemos arquitetos,
-                paisagistas e clientes que buscam não apenas qualidade, mas
-                propósito em cada planta.
+                Mais do que uma compra, é uma parceria. Atendemos arquitetos, paisagistas e clientes
+                que buscam não apenas qualidade, mas propósito em cada planta.
               </p>
             </div>
           </div>
@@ -167,6 +179,7 @@ function JardimPage() {
                   <button
                     key={cat}
                     type="button"
+                    aria-pressed={ativo}
                     onClick={() => setFiltro(cat)}
                     className="rounded-full border-2 px-5 py-2 text-sm font-bold transition-smooth"
                     style={
@@ -191,7 +204,9 @@ function JardimPage() {
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
               {visiveis.map((img, i) => (
-                <figure
+                <button
+                  type="button"
+                  aria-label={`Ampliar: ${img.alt}`}
                   key={img.src}
                   onClick={() => setOpenIndex(i)}
                   className="group relative cursor-zoom-in overflow-hidden rounded-3xl shadow-soft transition-all duration-500 hover:shadow-elegant animate-fade-in"
@@ -208,7 +223,7 @@ function JardimPage() {
                   >
                     {img.categoria}
                   </span>
-                </figure>
+                </button>
               ))}
             </div>
           </div>
@@ -222,9 +237,7 @@ function JardimPage() {
             onPrev={() =>
               setOpenIndex((i) => (i === null ? null : (i - 1 + visiveis.length) % visiveis.length))
             }
-            onNext={() =>
-              setOpenIndex((i) => (i === null ? null : (i + 1) % visiveis.length))
-            }
+            onNext={() => setOpenIndex((i) => (i === null ? null : (i + 1) % visiveis.length))}
           />
         )}
 
@@ -285,8 +298,8 @@ function JardimPage() {
                     Seja um parceiro do Jardim
                   </h3>
                   <p className="mt-2 text-base text-muted-foreground md:text-lg">
-                    Arquitetos, paisagistas, lojistas e empresas: vamos cultivar
-                    juntos um futuro com mais beleza e mais propósito.
+                    Arquitetos, paisagistas, lojistas e empresas: vamos cultivar juntos um futuro
+                    com mais beleza e mais propósito.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
@@ -360,9 +373,7 @@ function FeatureCard({
       >
         {title}
       </h3>
-      <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      <p className="mt-3 text-base leading-relaxed text-muted-foreground">{description}</p>
     </article>
   );
 }
@@ -371,11 +382,7 @@ function FeatureCard({
 function HeartMark() {
   return (
     <div className="flex justify-center">
-      <svg
-        viewBox="0 0 200 180"
-        className="h-44 w-44 md:h-60 md:w-60"
-        aria-hidden="true"
-      >
+      <svg viewBox="0 0 200 180" className="h-44 w-44 md:h-60 md:w-60" aria-hidden="true">
         <path
           d="M100 158 C 30 110, 18 60, 52 38 C 78 22, 100 44, 100 64 C 100 44, 122 22, 148 38 C 182 60, 170 110, 100 158 Z"
           fill="none"
